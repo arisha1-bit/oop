@@ -6,10 +6,10 @@
 using namespace std;
 
 ostream& operator<< (ostream& out, const Shatrashanova_city& city) {
-	out << "Name: " << city.name;
-	out << "Square: " << city.square;
-	out << "Age: " << city.age;
-	out << "Population: " << city.population;
+	out << "Name: " << city.name << endl;
+	out << "Square: " << city.square << endl;
+	out << "Age: " << city.age << endl;
+	out << "Population: " << city.population << endl << endl;
 	return out;
 }
 istream& operator>> (istream& in, Shatrashanova_city& city) {
