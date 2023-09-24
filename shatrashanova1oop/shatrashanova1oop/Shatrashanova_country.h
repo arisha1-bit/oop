@@ -4,6 +4,7 @@
 #include <vector>
 #include "Shatrashanova_city.h"
 #include "Shatrashanova_capital.h"
+#include <memory>
 using namespace std;
 class Shatrashanova_country
 {
@@ -16,7 +17,7 @@ public:
 
 
 private:
-	vector<Shatrashanova_city*> country;
+	vector<shared_ptr<Shatrashanova_city>> country;
 
 };
 
