@@ -1,7 +1,10 @@
 #include "Shatrashanova_capital.h"
 #include <iostream>
 #include "utils.h"
-
+#include "pch.h"
+#include "framework.h"
+using namespace std;
+IMPLEMENT_SERIAL(Shatrashanova_capital, Shatrashanova_city, VERSIONABLE_SCHEMA | 0)
 void Shatrashanova_capital::creat(istream& in) {
 	cout << "¬ведите название города " << endl;
 	in.clear();
@@ -18,6 +21,19 @@ void Shatrashanova_capital::creat(istream& in) {
 	getline(in, president);
 	cout << "¬ведите главную достопримечательность столицы" << endl;
 	getline(in, sight);
+}
+
+void Shatrashanova_capital::Serialize(CArchive& ar) {
+	Shatrashanova_city::Serialize(ar);
+	if (ar.IsStoring())
+		ar << president.c_str() << sight.c_str();
+	else {
+		CString president;
+		CString sight;
+		ar >> president >> sight;
+		this->president = (LPCSTR)president;
+		this->sight = (LPCSTR)sight;
+	}
 }
 
 void Shatrashanova_capital::show(ostream& out) {

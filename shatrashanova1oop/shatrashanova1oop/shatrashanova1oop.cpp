@@ -5,8 +5,9 @@
 #include <fstream>
 #include <string>
 #include <Windows.h>
+#include "pch.h"
+#include "framework.h"
 using namespace std;
-
 int main()
 {
     setlocale(LC_ALL, "Rus");
@@ -31,29 +32,36 @@ int main()
             cout << Country;
             break;
         }
-        /*case 3:
-        {
-            string file;
-            cout << "Введите название файла без .txt" << endl;
-            getline(cin, file);
-            getline(cin, file);
-            ifstream f;
-            f.open(file + ".txt");
-            f >> Country;
-            f.close();
-            break; }
         case 4:
         {
             string file;
             cout << "Введите название файла без .txt" << endl;
             getline(cin, file);
             getline(cin, file);
-            ofstream f;
-            f.open(file + ".txt");
-            f << Country;
-            f.close();
-            break;
-        }*/
+            CFile f(file.c_str(), CFile::modeCreate | CFile::modeWrite);
+            CArchive ar(&f, CArchive::store);
+            ar << Country.getvector().size();
+            for (auto& i : Country.getvector()) {
+                ar << i.get();
+            }
+            break; }
+        case 5:
+        {
+            string file;
+            cout << "Введите название файла без .txt" << endl;
+            getline(cin, file);
+            getline(cin, file);
+            CFile f(file.c_str(), CFile::modeRead);
+            CArchive ar(&f, CArchive::load);
+            int n;
+            ar >> n;
+            for (int i = 0; i < n; i++) {
+                shared_ptr<Shatrashanova_city> city = make_shared<Shatrashanova_city>();
+                auto ptr = city.get();
+                ar >> ptr;
+                Country.getvector().push_back(city);
+            }
+            break; }
         case 6:
         {
 

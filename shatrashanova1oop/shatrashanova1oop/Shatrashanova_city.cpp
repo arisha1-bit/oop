@@ -3,13 +3,27 @@
 #include <fstream>
 #include <float.h>
 #include "utils.h"
+#include "pch.h"
+#include "framework.h"
 using namespace std;
-
+IMPLEMENT_SERIAL(Shatrashanova_city, CObject, VERSIONABLE_SCHEMA | 0)
 void Shatrashanova_city::show(ostream& out) {
 	out << "Название: " << name << endl;
 	out << "Площадь: " << square << endl;
 	out << "Возраст: " << age << endl;
 	out << "Население: " << population << endl << endl;
+}
+void Shatrashanova_city::Serialize(CArchive& ar) {
+	if (ar.IsStoring()) {
+		ar << name.c_str() << square << age << population;
+	}
+	else {
+		CString name;
+		ar >> name >> square >> age >> population;
+		this->name=(LPCSTR)name;
+	}
+
+
 }
 
 void Shatrashanova_city::creat(istream& in) {
@@ -24,15 +38,3 @@ void Shatrashanova_city::creat(istream& in) {
 	cout << "Введите население города в тысячах" << endl;
 	population = correctnumber(0.0, DBL_MAX);
 }
-//ofstream& operator<< (ofstream& of, const Shatrashanova_city& city) {
-//	of << city.name << endl << city.square << endl << city.age << endl << city.population << endl;
-//	return of;
-//}
-//ifstream& operator>> (ifstream& inf, Shatrashanova_city& city) {
-//	getline(inf, city.name);
-//	getline(inf, city.name);
-//	inf >> city.square;
-//	inf >> city.age;
-//	inf >> city.population;
-//	return inf;
-//}
