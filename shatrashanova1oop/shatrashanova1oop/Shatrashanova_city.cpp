@@ -6,22 +6,22 @@
 using namespace std;
 
 ostream& operator<< (ostream& out, const Shatrashanova_city& city) {
-	out << "Name: " << city.name << endl;
-	out << "Square: " << city.square << endl;
-	out << "Age: " << city.age << endl;
-	out << "Population: " << city.population << endl << endl;
+	out << "Название: " << city.name << endl;
+	out << "Площадь: " << city.square << endl;
+	out << "Возраст: " << city.age << endl;
+	out << "Население: " << city.population << endl << endl;
 	return out;
 }
 istream& operator>> (istream& in, Shatrashanova_city& city) {
-	cout << "Input city`s name" << endl;
+	cout << "Введите название города " << endl;
 	in.clear();
 	in.ignore(INT_MAX, '\n');
 	getline(in, city.name);
-	cout << "Input city`s square (in km^2)" << endl;
+	cout << "Введите площадь города в км^2" << endl;
 	city.square = correctnumber(0.0, DBL_MAX);
-	cout << "Input city`s age" << endl;
+	cout << "Введите возраст города" << endl;
 	city.age = correctnumber(0, INT_MAX);
-	cout << "Input city`s population (in thousands)" << endl;
+	cout << "Введите население города в тысячах" << endl;
 	city.population = correctnumber(0.0, DBL_MAX);
 	return in;
 }

@@ -7,9 +7,7 @@ using namespace std;
 class Shatrashanova_country
 {
 public: 
-	/*Shatrashanova_country();
-	~Shatrashanova_country();*/
-
+	
 	void add_new_city();
 	void delete_cities();
 

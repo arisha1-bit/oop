@@ -4,14 +4,18 @@
 #include "Shatrashanova_country.h"
 #include <fstream>
 #include <string>
+#include <Windows.h>
 using namespace std;
 
 int main()
 {
+    setlocale(LC_ALL, "Rus");
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
     Shatrashanova_country Country;
     int option = -1;
     while (option) {
-        cout << "Choose option: 1. Add new city   2. Show the country   3. Read data from file   4. Save to file   5. Clear the country    0. Exit" << endl;
+        cout << "Выберите вариант: 1. Добавить новый город   2. Показать всю страну   3. Считать информацию с файла   4. Сохранить нформацию в файл   5. Очистить страну    0. Выйти" << endl;
         option = correctnumber(0, 5);
         switch (option) {
         case 0:
@@ -29,7 +33,7 @@ int main()
         case 3:
         {
             string file;
-            cout << "Input name of file to read from without .txt" << endl;
+            cout << "Введите название файла без .txt" << endl;
             getline(cin, file);
             getline(cin, file);
             ifstream f;
@@ -40,7 +44,7 @@ int main()
         case 4:
         {
             string file;
-            cout << "Input name of file to save to without .txt" << endl;
+            cout << "Введите название файла без .txt" << endl;
             getline(cin, file);
             getline(cin, file);
             ofstream f;
@@ -51,7 +55,7 @@ int main()
         }
         case 5:
             Country.delete_cities();
-            cout << "Country is cleared" << endl;
+            cout << "Страна очищена" << endl;
             break;
         }
     }

@@ -11,7 +11,7 @@ void Shatrashanova_country::add_new_city() {
 	country.push_back(city);
 }
 ostream& operator<< (ostream& out, const Shatrashanova_country& country) {
-	out << "Cities in the country" << endl;
+	out << "Города в стране" << endl;
 	for (auto& city : country.country) {
 		out << *city;
 	}
@@ -25,7 +25,7 @@ void Shatrashanova_country::delete_cities() {
 }
 ifstream& operator>> (ifstream& inf, Shatrashanova_country& country) {
 	if (!inf) {
-		cout << "Unable to open the file" << endl;
+		cout << "Невозможно открыть файл" << endl;
 		return inf;
 	}
 	country.delete_cities();
@@ -40,7 +40,7 @@ ifstream& operator>> (ifstream& inf, Shatrashanova_country& country) {
 }
 ofstream& operator<< (ofstream& of, const Shatrashanova_country& country) {
 	if (!of) {
-		cout << "Unable to open the file" << endl;
+		cout << "Невозможно открыть файл" << endl;
 		return of;
 	}
 	of << country.country.size() << endl;

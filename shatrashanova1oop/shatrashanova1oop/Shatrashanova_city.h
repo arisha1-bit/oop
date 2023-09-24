@@ -5,8 +5,6 @@
 using namespace std;
 class Shatrashanova_city
 {public:
-	/*Shatrashanova_city();
-	~Shatrashanova_city();*/
 
 	friend ostream& operator<< (ostream& out, const Shatrashanova_city& city);
 	friend istream& operator>> (istream& in, Shatrashanova_city& city);
