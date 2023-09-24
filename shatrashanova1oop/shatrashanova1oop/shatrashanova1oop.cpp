@@ -15,8 +15,9 @@ int main()
     Shatrashanova_country Country;
     int option = -1;
     while (option) {
-        cout << "Выберите вариант: 1. Добавить новый город   2. Показать всю страну   3. Считать информацию с файла   4. Сохранить нформацию в файл   5. Очистить страну    0. Выйти" << endl;
-        option = correctnumber(0, 5);
+        cout << endl << endl;
+        cout << "Выберите вариант: 1. Добавить новый город   2. Добавить столицу   3. Показать всю страну   4. Сохранить информацию в файл   5. Считать информацию с файла   6. Очистить страну    0. Выйти" << endl;
+        option = correctnumber(0, 6);
         switch (option) {
         case 0:
             return 0;
@@ -25,12 +26,12 @@ int main()
             Country.add_new_city();
             break;
         }
-        case 2:
+        case 3:
         {
             cout << Country;
             break;
         }
-        case 3:
+        /*case 3:
         {
             string file;
             cout << "Введите название файла без .txt" << endl;
@@ -52,11 +53,18 @@ int main()
             f << Country;
             f.close();
             break;
-        }
-        case 5:
+        }*/
+        case 6:
+        {
+
             Country.delete_cities();
             cout << "Страна очищена" << endl;
             break;
+        }
+        case 2: {
+            Country.add_capital();
+            break;
+        }
         }
     }
     return 0;

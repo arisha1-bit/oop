@@ -140,10 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="shatrashanova1oop.cpp" />
+    <ClCompile Include="Shatrashanova_capital.cpp" />
     <ClCompile Include="Shatrashanova_city.cpp" />
     <ClCompile Include="Shatrashanova_country.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Shatrashanova_capital.h" />
     <ClInclude Include="Shatrashanova_city.h" />
     <ClInclude Include="Shatrashanova_country.h" />
     <ClInclude Include="utils.h" />

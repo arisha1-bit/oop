@@ -5,35 +5,34 @@
 #include "utils.h"
 using namespace std;
 
-ostream& operator<< (ostream& out, const Shatrashanova_city& city) {
-	out << "Название: " << city.name << endl;
-	out << "Площадь: " << city.square << endl;
-	out << "Возраст: " << city.age << endl;
-	out << "Население: " << city.population << endl << endl;
-	return out;
+void Shatrashanova_city::show(ostream& out) {
+	out << "Название: " << name << endl;
+	out << "Площадь: " << square << endl;
+	out << "Возраст: " << age << endl;
+	out << "Население: " << population << endl << endl;
 }
-istream& operator>> (istream& in, Shatrashanova_city& city) {
+
+void Shatrashanova_city::creat(istream& in) {
 	cout << "Введите название города " << endl;
 	in.clear();
 	in.ignore(INT_MAX, '\n');
-	getline(in, city.name);
+	getline(in, name);
 	cout << "Введите площадь города в км^2" << endl;
-	city.square = correctnumber(0.0, DBL_MAX);
+	square = correctnumber(0.0, DBL_MAX);
 	cout << "Введите возраст города" << endl;
-	city.age = correctnumber(0, INT_MAX);
+	age = correctnumber(0, INT_MAX);
 	cout << "Введите население города в тысячах" << endl;
-	city.population = correctnumber(0.0, DBL_MAX);
-	return in;
+	population = correctnumber(0.0, DBL_MAX);
 }
-ofstream& operator<< (ofstream& of, const Shatrashanova_city& city) {
-	of << city.name << endl << city.square << endl << city.age << endl << city.population << endl;
-	return of;
-}
-ifstream& operator>> (ifstream& inf, Shatrashanova_city& city) {
-	getline(inf, city.name);
-	getline(inf, city.name);
-	inf >> city.square;
-	inf >> city.age;
-	inf >> city.population;
-	return inf;
-}
+//ofstream& operator<< (ofstream& of, const Shatrashanova_city& city) {
+//	of << city.name << endl << city.square << endl << city.age << endl << city.population << endl;
+//	return of;
+//}
+//ifstream& operator>> (ifstream& inf, Shatrashanova_city& city) {
+//	getline(inf, city.name);
+//	getline(inf, city.name);
+//	inf >> city.square;
+//	inf >> city.age;
+//	inf >> city.population;
+//	return inf;
+//}
