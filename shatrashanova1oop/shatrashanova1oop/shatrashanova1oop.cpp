@@ -35,32 +35,37 @@ int main()
         case 4:
         {
             string file;
-            cout << "Введите название файла без .txt" << endl;
+            cout << "Введите название файла без .dat" << endl;
             getline(cin, file);
             getline(cin, file);
+            file += ".dat";
             CFile f(file.c_str(), CFile::modeCreate | CFile::modeWrite);
             CArchive ar(&f, CArchive::store);
             ar << Country.getvector().size();
             for (auto& i : Country.getvector()) {
-                ar << i.get();
+                auto ptr = i.get();
+                ar << ptr;
             }
+            ar.Close();
             break; }
         case 5:
         {
             string file;
-            cout << "Введите название файла без .txt" << endl;
+            cout << "Введите название файла без .dat" << endl;
             getline(cin, file);
             getline(cin, file);
+            file += ".dat";
             CFile f(file.c_str(), CFile::modeRead);
             CArchive ar(&f, CArchive::load);
             int n;
             ar >> n;
             for (int i = 0; i < n; i++) {
-                shared_ptr<Shatrashanova_city> city = make_shared<Shatrashanova_city>();
-                auto ptr = city.get();
-                ar >> ptr;
-                Country.getvector().push_back(city);
+                Shatrashanova_city* city;
+                ar >> city;
+                shared_ptr<Shatrashanova_city> NewCity(city);
+                Country.getvector().push_back(NewCity);
             }
+            ar.Close();
             break; }
         case 6:
         {

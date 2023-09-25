@@ -25,14 +25,19 @@ void Shatrashanova_capital::creat(istream& in) {
 
 void Shatrashanova_capital::Serialize(CArchive& ar) {
 	Shatrashanova_city::Serialize(ar);
-	if (ar.IsStoring())
-		ar << president.c_str() << sight.c_str();
+	if (ar.IsStoring()){
+		CString president_;
+		CString sight_;
+		president_ = CString(president.c_str());
+		sight_ = CString(sight.c_str());
+		ar << president_ << sight_;
+	}
 	else {
-		CString president;
-		CString sight;
-		ar >> president >> sight;
-		this->president = (LPCSTR)president;
-		this->sight = (LPCSTR)sight;
+		CString president_;
+		CString sight_;
+		ar >> president_ >> sight_;
+		president = CT2CA(president_);
+		sight = CT2CA(sight_);
 	}
 }
 

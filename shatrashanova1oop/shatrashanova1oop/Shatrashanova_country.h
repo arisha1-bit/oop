@@ -16,7 +16,7 @@ public:
 	void delete_cities();
 	void add_capital();
 	friend ostream& operator<< (ostream& out, const Shatrashanova_country& country);
-	vector<shared_ptr<Shatrashanova_city>> getvector() {
+	vector<shared_ptr<Shatrashanova_city>> &getvector() {
 		return country;
 	}
 

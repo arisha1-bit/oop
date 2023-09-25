@@ -6,7 +6,7 @@
 #include "pch.h"
 #include "framework.h"
 using namespace std;
-IMPLEMENT_SERIAL(Shatrashanova_city, CObject, VERSIONABLE_SCHEMA | 0)
+IMPLEMENT_SERIAL(Shatrashanova_city, CObject,0)
 void Shatrashanova_city::show(ostream& out) {
 	out << "Название: " << name << endl;
 	out << "Площадь: " << square << endl;
@@ -15,12 +15,14 @@ void Shatrashanova_city::show(ostream& out) {
 }
 void Shatrashanova_city::Serialize(CArchive& ar) {
 	if (ar.IsStoring()) {
-		ar << name.c_str() << square << age << population;
+		CString name1;
+		name1 = CString(name.c_str());
+		ar << name1 << square << age << population;
 	}
 	else {
-		CString name;
-		ar >> name >> square >> age >> population;
-		this->name=(LPCSTR)name;
+		CString name_;
+		ar >> name_ >> square >> age >> population;
+		name = CT2CA(name_);
 	}
 
 

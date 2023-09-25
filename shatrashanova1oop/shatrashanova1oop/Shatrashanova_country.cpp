@@ -7,7 +7,6 @@
 #include "pch.h"
 #include "framework.h"
 using namespace std;
-
 void Shatrashanova_country::add_new_city() {
 	shared_ptr<Shatrashanova_city> city =  make_shared<Shatrashanova_city>();
 	city->creat(cin);
