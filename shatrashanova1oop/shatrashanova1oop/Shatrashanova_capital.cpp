@@ -6,17 +6,9 @@
 using namespace std;
 IMPLEMENT_SERIAL(Shatrashanova_capital, Shatrashanova_city, VERSIONABLE_SCHEMA | 0)
 void Shatrashanova_capital::creat(istream& in) {
-	cout << "¬ведите название города " << endl;
-	in.clear();
-	in.ignore(INT_MAX, '\n');
-	getline(in, name);
-	cout << "¬ведите площадь города в км^2" << endl;
-	square = correctnumber(0.0, DBL_MAX);
-	cout << "¬ведите возраст города" << endl;
-	age = correctnumber(0, INT_MAX);
-	cout << "¬ведите население города в тыс€чах" << endl;
-	population = correctnumber(0.0, DBL_MAX);
-	cout << "¬ведите ‘»ќ президента страны" << endl;
+	Shatrashanova_city::creat(in);
+	cout << endl;
+	cout << "¬ведите им€ президента: " << endl;
 	getline(in, president);
 	getline(in, president);
 	cout << "¬ведите главную достопримечательность столицы" << endl;

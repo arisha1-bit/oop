@@ -10,7 +10,7 @@ class Shatrashanova_city: public CObject
 public:
 	DECLARE_SERIAL(Shatrashanova_city);
 	Shatrashanova_city() {};
-	virtual ~Shatrashanova_city() = default;
+	virtual ~Shatrashanova_city() {};
 	virtual void creat(istream& in);
 	virtual void show(ostream& out);
 	virtual void Serialize(CArchive& ar);

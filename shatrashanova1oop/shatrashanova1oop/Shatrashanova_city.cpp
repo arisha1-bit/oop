@@ -8,6 +8,7 @@
 using namespace std;
 IMPLEMENT_SERIAL(Shatrashanova_city, CObject,0)
 void Shatrashanova_city::show(ostream& out) {
+	out << endl;
 	out << "Название: " << name << endl;
 	out << "Площадь: " << square << endl;
 	out << "Возраст: " << age << endl;
